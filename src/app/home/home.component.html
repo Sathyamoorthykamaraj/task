@@ -1,0 +1,112 @@
+<div class="blogcard">
+    <form name="form" (ngSubmit)=" onSubmit(f)" #f="ngForm" novalidate>
+        <div class="card-body pb-0">
+            <div class="card">
+                <div class="card-header main-search dash-search">
+                    <h1 style="text-align: center;">Card</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <div class="card">
+                        <div *ngIf="!updateCountry" class="card-header">Add a Blog Card
+                            <h3 *ngIf="formSubmitted" style="text-align: center; color: green;">New card has been
+                                added successfully...</h3>
+                            <h3 *ngIf="isDelete" style="text-align: center; color: green;">Card has been deleted
+                                successfully...</h3>
+                        </div>
+                        <div *ngIf="updateCountry" class="card-header">Update
+                            <h3 *ngIf="formSubmitted" style="text-align: center; color: green;">Existing card has
+                                been updated successfully...</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="center-form">
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <div class="maincard">
+                                            <label class="col-form-label">Blogtitle</label><br>
+                                            <input type="text" class="form-control" placeholder="Enter your title here..." name="Title" autofocus
+                                                [(ngModel)]="Country.Title" #country="ngModel"
+                                                [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" required />
+                                            <div *ngIf="f.submitted && country.invalid" class="invalid-feedback">
+                                            </div>
+                                      </div>
+                                        </div>
+                                    <br>
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <div class="maincard">
+                                            <label class="col-form-label">Blogcontent</label><br>
+                                            <textarea type="text" placeholder="Enter your text here..."
+                                                class="form-control" name="Blogcontent" cols="20" rows="10"
+                                                [(ngModel)]="Country.Blogcontent" #countryShortName="ngModel"
+                                                [ngClass]="{ 'is-invalid': f.submitted && country.invalid }"
+                                                required>  </textarea>
+                                            <div *ngIf="f.submitted && countryShortName.invalid"
+                                                class="invalid-feedback">
+                                            </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                   
+
+                                    <div class="pbtn">
+                                        <button *ngIf="!updateCountry" >Post</button>
+                                    </div>
+
+                                    <div class="ubtn">
+                                        <button *ngIf="updateCountry" >Update</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</div>
+                <div class="col-12 col-md-12" style="display: flex;" >
+                    <div class="viewcard">
+                        <div class="card-header">View Card</div>
+                        <div class="card-body position-relative">
+                            <div class="table-responsive cnstr-record product-tbl"><br>
+
+                                <table class="table table-bordered heading-hvr" >
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th class="active">blog_title</th><br>
+                                            <th>blog_content</th>
+                                            
+                                            <th width="60"></th>
+                                            <th width="60"> </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let countryList of countries">
+                                           
+                                            <td>{{countryList.CountryName}}</td><br>
+                                            <td>{{countryList.CountryShortName | uppercase}}</td>
+                                            
+
+                                            
+                                            <td class="case-record">
+                                                <button type="button" style="color: yellowgreen;"
+                                                    (click)="editCountry(countryList.id)">Edit</button>
+                                            </td>
+                                            <td> <button type="button" style="color: red;"
+                                                    (click)="deleteCountry(countryList.id)">Delete</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
