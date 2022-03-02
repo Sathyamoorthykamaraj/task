@@ -26,27 +26,27 @@
 
   @media only screen and (max-width: 1600px){
   .pbtn{
-    font-size: 1.2rem;
+  
     margin: 20px 0;
     text-align: center;
-    background: #4d7fa8;
-    color: white !important;
-
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }}
-
+.btn{
+  width:58.5%;
+  background: #4d7fa8;
+}
 @media only screen and (max-width: 1600px){
 .ubtn{
-    font-size: 1.2rem;
+   
     margin: 20px 0;
     text-align: center;
-    background: #90f0b0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+ 
+ 
 }}
+.update{
+  background: #90f0b0;
+  width: 58.5%;
+
+}
 
 @media only screen and (max-width: 1600px){
 .maincard

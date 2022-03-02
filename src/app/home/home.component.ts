@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   Country: Country = new Country();  
   
   countryId = null;  
+    date=Date.now()
   isToggle: boolean = false;  
   formSubmitted: boolean | undefined;  
   isDelete: boolean | undefined;  
@@ -50,7 +51,8 @@ export class HomeComponent implements OnInit {
       if (this.countryId == null) {  
         this.CountryList.push({  
           CountryName: this.Country.Title,  
-          CountryShortName: this.Country.Blogcontent,  
+          CountryShortName: this.Country.Blogcontent,
+          Created_at:this.date  
          
         })  
   
@@ -58,7 +60,7 @@ export class HomeComponent implements OnInit {
         this.CountryList.update(this.countryId, { 
           CountryName: this.Country.Title,  
           CountryShortName: this.Country.Blogcontent,  
-           
+          Created_at:this.date 
         })  
       }  
       this.Country = new Country();  

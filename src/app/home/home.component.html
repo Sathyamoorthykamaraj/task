@@ -56,11 +56,12 @@
                                    
 
                                     <div class="pbtn">
-                                        <button *ngIf="!updateCountry" >Post</button>
+                                        <button class="btn" *ngIf="!updateCountry" >Post</button>
                                     </div>
 
+
                                     <div class="ubtn">
-                                        <button *ngIf="updateCountry" >Update</button>
+                                        <button class="update" *ngIf="updateCountry" >Update</button>
                                     </div>
 
                                 </div>
@@ -81,6 +82,7 @@
                                             
                                             <th class="active">blog_title</th><br>
                                             <th>blog_content</th>
+                                            <th>Date</th>
                                             
                                             <th width="60"></th>
                                             <th width="60"> </th>
@@ -92,8 +94,8 @@
                                            
                                             <td>{{countryList.CountryName}}</td><br>
                                             <td>{{countryList.CountryShortName | uppercase}}</td>
+                                            <td>{{countryList.Created_at|date:'dd/MM/yyyy'}}</td>
                                             
-
                                             
                                             <td class="case-record">
                                                 <button type="button" style="color: yellowgreen;"
